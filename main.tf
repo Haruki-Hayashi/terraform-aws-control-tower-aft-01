@@ -11,10 +11,10 @@ module "aft" {
   tf_backend_secondary_region = var.tf_backend_secondary_region
 
   vcs_provider                                  = "github"
-  account_request_repo_name                     = "${var.github_username}/learn-terraform-aft-account-request"
-  account_provisioning_customizations_repo_name = "${var.github_username}/learn-terraform-aft-account-provisioning-customizations"
-  global_customizations_repo_name               = "${var.github_username}/learn-terraform-aft-global-customizations"
-  account_customizations_repo_name              = "${var.github_username}/learn-terraform-aft-account-customizations"
+  account_request_repo_name                     = "${var.github_username}/terraform-aft-account-request-02"
+  account_provisioning_customizations_repo_name = "${var.github_username}/terraform-aft-account-provisioning-customizations-05"
+  global_customizations_repo_name               = "${var.github_username}/terraform-aft-global-customizations-03"
+  account_customizations_repo_name              = "${var.github_username}/terraform-aft-account-customizations-04"
 
   # Optional Parameters
   aft_feature_delete_default_vpcs_enabled = false
