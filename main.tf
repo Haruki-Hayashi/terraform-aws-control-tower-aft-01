@@ -16,6 +16,16 @@ module "aft" {
   global_customizations_repo_name               = "${var.github_username}/terraform-aft-global-customizations-03"
   account_customizations_repo_name              = "${var.github_username}/terraform-aft-account-customizations-04"
 
+  # Terraform バージョン指定
+  # 2026/10/28:
+  #   既定値(1.6.0)では HashiCorp 署名鍵の期限切れ(2026/4/18失効)により
+  #   AWS プロバイダのインストールが "openpgp: key expired" で失敗する。
+  #   一方で 1.10.0 以降は S3 backend の role_arn 引数が削除され、AFT が生成する
+  #   backend.tf（古いテンプレートの role_arn 形式）が "Unsupported argument" で失敗する。
+  #   両方を回避できる 1.9 系の最終版 1.9.8 を採用する。
+  #   （1.9.8: 署名鍵問題は解消済み／backend の role_arn はまだサポート）
+  terraform_version = "1.9.8"
+
   # Optional Parameters
   aft_feature_delete_default_vpcs_enabled = false
   aft_feature_cloudtrail_data_events      = false
